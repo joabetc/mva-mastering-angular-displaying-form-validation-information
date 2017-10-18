@@ -5,11 +5,19 @@ import { Component } from "@angular/core";
     styles: [
         "div { margin: 30px; }",
         ".ng-invalid.ng-touched:not(:focus) { border: 3px solid red; }",
-        ".ng-valid:not(:focus) { border: 3px solid green; }"
+        ".ng-valid:not(:focus) { border: 3px solid green; }",
+        ".ng-untouched ~ span, :focus ~ span { display: none; }",
+        ".ng-valid ~ span { display: none; }",
+        "strong { float: left; color: red; }",
+        ".ng-valid + strong, .ng-untouched ~ strong, :focus ~ strong { display: none; }",
     ],
     template: `
         <div>
             <input type="text"[(ngModel)]="message" required>
+            <strong>*</strong>
+            <span>
+                Message is required.
+            </span>
         </div>
     `,
 })
