@@ -41,7 +41,7 @@ import { NgForm, NgModelGroup, NgModel, FormGroup } from "@angular/forms";
                     </div>
                 </section>
             </fieldset>
-            <button type="submit">Submit</button>
+            <button type="submit" *ngIf="!contactForm.invalid">Submit</button>
         </form>
     `,
 })
